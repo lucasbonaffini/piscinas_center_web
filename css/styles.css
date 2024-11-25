@@ -1,11 +1,15 @@
-/* Updated color scheme with brand blue tones */
-
+/* Estilos globales */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e6f2ff;
+    background-color: #F7F7F5;
     color: #1a3b5d;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', serif;
+    font-weight: 700; /* Bold */
 }
 
 .container {
@@ -14,6 +18,7 @@ body {
     margin: 0 auto;
 }
 
+/* Header */
 .header {
     background-color: #1a3b5d;
     color: #fff;
@@ -43,38 +48,91 @@ body {
     font-weight: 400;
 }
 
+/* Hero Section */
 .hero {
-    background: linear-gradient(to bottom, #4d88cc, #66a3ff);
+    position: relative;
+    overflow: hidden;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 150px 20px;
+    background-color: #1a3b5d; /* Color de fondo de respaldo */
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/pool-party.jpg'); /* Ajusta la ruta según tu estructura */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7); /* Oscurece la imagen */
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+    color: #FFFFFF;
 }
 
 .hero-title {
-    font-size: 36px;
+    font-size: 80px;
     margin-bottom: 10px;
+    font-weight: 700; /* Bold para mayor impacto */
+    /* Eliminado: Propiedades de animación */
+}
+
+.hero .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s; /* Retraso antes de iniciar la animación */
 }
 
 .hero-subtitle {
     font-size: 18px;
     margin-bottom: 20px;
+    font-weight: 400; /* Regular */
+    opacity: 0; /* Inicialmente oculto para la animación */
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.7s; /* Retraso opcional */
+}
+
+.hero-svg-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.hero-svg-overlay svg {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .btn-primary {
     background-color: #4d88cc;
     color: #fff;
-    padding: 10px 20px;
-    border: none;
+    padding: 12px 24px;
     text-decoration: none;
-    cursor: pointer;
+    border-radius: 4px;
     transition: background-color 0.3s;
+    display: inline-block;
+    font-weight: 600; /* Semi-bold para mejor visibilidad */
+    opacity: 0; /* Inicialmente oculto para la animación */
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.9s; /* Retraso opcional */
 }
 
 .btn-primary:hover {
     background-color: #3b73a3;
 }
 
-.about, .services, .gallery, .contact {
+/* About Section */
+.about, .services, .gallery, .contact, .cta {
     padding: 60px 0;
 }
 
@@ -85,13 +143,112 @@ body {
     color: #1a3b5d;
 }
 
-.about p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #3b5e80;
+/* Sección Sobre Nosotros */
+.about {
+    position: relative; /* Para posicionamiento absoluto de elementos internos */
+    padding: 80px 0;
+    background-color: #f7f7f5;
 }
 
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-image {
+    position: relative;
+    flex: 1;
+}
+
+.about-image img:first-child {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.about-shape {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 150px;
+}
+
+.about-shape-2 {
+    position: absolute;
+    top: -90px; /* Posiciona en la parte superior */
+    right: 0; /* Posiciona en el borde derecho */
+    width: 250px; /* Ajusta el tamaño según tus necesidades */
+    z-index: 0; /* Asegura que esté detrás del contenido principal */
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text .section-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #1a3b5d;
+}
+
+.about-text p {
+    color: #3b5e80;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.about-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.about-list ion-icon {
+    color: #4d88cc;
+    font-size: 32px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.about-list div {
+    flex: 1;
+}
+
+.about-list h3 {
+    margin: 0 0 5px;
+    font-size: 24px;
+    color: #1a3b5d;
+}
+
+.about-list p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Botón */
+.btn-primary {
+    background-color: #4d88cc;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #3b73a3;
+}
+
+/* Services Section */
 .service-list {
     display: flex;
     gap: 20px;
@@ -105,8 +262,79 @@ body {
     border-radius: 8px;
     width: 300px;
     text-align: center;
+    transition: transform 0.3s;
 }
 
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para los íconos de las tarjetas de servicio */
+.service-item ion-icon {
+    font-size: 48px;
+    color: #1a3b5d;
+    margin-bottom: 10px;
+}
+
+/* Imagen decorativa */
+.services {
+    position: relative;
+    padding: 60px 0;
+}
+
+/* .services-decor {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 200px;
+    z-index: 1;
+} */
+
+/* Definimos la animación de rebote */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+/* Clase que activa la animación */
+.about-shape-2.bounce {
+    animation: bounce 2s;
+}
+
+/* Animación Fade-In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clase para aplicar la animación específica a la sección Hero */
+.hero .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s; /* Retraso antes de iniciar la animación */
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+    .services-decor {
+        display: none;
+    }
+}
+
+/* Gallery Section */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -133,12 +361,24 @@ body {
     border-radius: 4px;
 }
 
+/* CTA Section */
+.cta {
+    background-color: #4d88cc;
+    color: #fff;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
 .footer {
     background: linear-gradient(to bottom, #1a3b5d, #004080);
     color: #fff;
     text-align: center;
-    padding: 40px 0;
-    margin-top: 40px;
+    padding: 60px 0 40px;
     position: relative;
 }
 
@@ -173,20 +413,58 @@ body {
     color: #66a3ff;
 }
 
-.water-animation {
-    position: relative;
-    overflow: hidden;
+
+/* Responsive Styles */
+@media screen and (max-width: 992px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image,
+    .about-text {
+        flex: unset;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+    }
+
+    .about-shape {
+        position: absolute;
+        bottom: -20px;
+        left: calc(50% - 75px); /* Centra la sombrilla debajo de la imagen */
+    }
+
+    .about-shape-2 {
+        top: -20px; /* Ajusta si es necesario para pantallas medianas */
+        right: -20px; /* Ajusta si es necesario para pantallas medianas */
+        width: 100px; /* Reduce tamaño para pantallas medianas */
+    }
 }
 
-#waterImage {
-    width: 100%;
-    height: auto;
-    animation: waveMove 10s linear infinite;
+@media screen and (max-width: 768px) {
+    .services-decor {
+        display: none;
+    }
+
+    .about-shape-2 {
+        display: none; /* Oculta la imagen decorativa en pantallas pequeñas */
+    }
+
+    .about-list li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-list ion-icon {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
 }
 
-@keyframes waveMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
+
+
 
 
