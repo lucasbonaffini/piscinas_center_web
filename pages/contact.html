@@ -1,74 +1,191 @@
+<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Piscinas Center</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+
+     <!-- Ionicons -->
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <header class="main-header">
         <div class="container">
-            <nav class="navbar">
-                <h1 class="logo">Piscinas Center</h1>
-                <ul class="nav-menu">
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="about.html">Quiénes Somos</a></li>
-                    <li><a href="services.html">Productos y Servicios</a></li>
-                    <li><a href="contact.html">Contacto</a></li>
-                </ul>
+            <nav class="main-nav">
+                <div class="nav-brand-section">
+                    <a href="../index.html" class="nav-brand">
+                        <img src="/img/logo.png" alt="Piscinas Center" class="nav-logo">
+                    </a>
+                    <img src="/img/shape-1.png" alt="" class="nav-shape">
+                </div>
+                
+                <button class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+    
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/about.html" class="nav-link">Quiénes Somos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/services.html" class="nav-link">Productos y Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/contact.html" class="nav-link">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact-section py-5">
         <div class="container">
             <h2 class="section-title">Contáctanos</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Correo Electrónico" required>
-                <textarea placeholder="Mensaje" required></textarea>
-                <button type="submit" class="btn-primary">Enviar Mensaje</button>
-            </form>
-            <div class="contact-info">
-                <h3>Visítanos</h3>
-                <p>Calle Falsa 123, Ciudad de las Piscinas, País</p>
-                <h3>Teléfono</h3>
-                <p>+34 123 456 789</p>
-                <h3>Correo Electrónico</h3>
-                <p>info@piscinascenter.com</p>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form class="contact-form">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Nombre">
+                            <label for="name">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control" id="phone" placeholder="Teléfono">
+                            <label for="phone">Teléfono</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="service">
+                                <option selected>Selecciona un servicio</option>
+                                <option value="1">Construcción nueva</option>
+                                <option value="2">Remodelación</option>
+                                <option value="3">Mantenimiento</option>
+                            </select>
+                            <label for="service">Servicio de interés</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="message" style="height: 150px" placeholder="Mensaje"></textarea>
+                            <label for="message">Mensaje</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info-card">
+                        <div class="mb-4">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <h3>Dirección</h3>
+                            <p>Calle Falsa 123, Ciudad de las Piscinas, País</p>
+                        </div>
+                        <div class="mb-4">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <h3>Teléfono</h3>
+                            <p>+34 123 456 789</p>
+                        </div>
+                        <div class="mb-4">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <h3>Email</h3>
+                            <p>info@piscinascenter.com</p>
+                        </div>
+                        <div>
+                            <i class="fas fa-clock contact-icon"></i>
+                            <h3>Horario de Atención</h3>
+                            <p>Lunes a Viernes: 9:00 - 18:00<br>
+                            Sábados: 9:00 - 13:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container mt-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d-0.0!3d0.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMCcwLjAiTiAwwrAwJzAuMCJX!5e0!3m2!1sen!2ses!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <img src="img/logo.png" alt="Logo Piscinas Center" class="footer-logo">
-            <p>&copy; 2024 Piscinas Center. Todos los derechos reservados.</p>
-            <div class="social-icons">
-                <a href="#" title="Facebook">
-                    <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-                <a href="#" title="Twitter">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-                <a href="#" title="Instagram">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-                <a href="#" title="LinkedIn">
-                    <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
+        <div class="footer-content">
+          <div class="container">
+            <div class="footer-columns">
+              <!-- Columna 1 - Logo e Info -->
+              <div class="footer-column">
+                <img src="../img/logo.png" alt="Piscinas Center" class="footer-logo">
+                <div class="footer-description">
+                  <p>Expertos en construcción y mantenimiento de piscinas, brindando servicios de alta calidad.</p>
+                  <div class="social-container">
+                    <div class="social-links">
+                      <a href="#" class="social-circle" aria-label="Facebook">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                      </a>
+                      <a href="#" class="social-circle" aria-label="Twitter">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                      </a>
+                      <a href="#" class="social-circle" aria-label="Instagram">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                      </a>
+                      <a href="#" class="social-circle" aria-label="LinkedIn">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Columna 2 - Enlaces -->
+              <div class="footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                  <li><a href="../index.html">Inicio</a></li>
+                  <li><a href="about.html">Quiénes Somos</a></li>
+                  <li><a href="services.html">Servicios</a></li>
+                  <li><a href="contact.html">Contacto</a></li>
+                </ul>
+              </div>
+              <!-- Columna 3 - Contacto -->
+              <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                  <li>
+                    <ion-icon name="location-outline"></ion-icon>
+                    Calle Falsa 123, Ciudad
+                  </li>
+                  <li>
+                    <ion-icon name="call-outline"></ion-icon>
+                    +34 123 456 789
+                  </li>
+                  <li>
+                    <ion-icon name="mail-outline"></ion-icon>
+                    info@piscinascenter.com
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+          <div class="container">
+            <p>© 2024 Piscinas Center. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
 
-    <!-- JavaScript for Water Animation -->
-    <script src="js/main.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
 </body>
 </html>
