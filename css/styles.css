@@ -87,9 +87,19 @@ h1, h2, h3, h4, h5, h6 {
     background: none;
     border: none;
     color: #1a3b5d;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
-    padding: 0;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+    background-color: rgba(26, 59, 93, 0.1);
+}
+
+.nav-toggle ion-icon {
+    display: block;
 }
 
 
@@ -1172,19 +1182,14 @@ html {
 
 
 /* Media Queries para Mobile */
-@media (max-width: 991px) {
+@media (max-width: 768px) {
     /* Header y Navegación */
-    .navbar-toggler {
+    .nav-toggle {
         display: block;
-        border: none;
-        padding: 0;
     }
-    
-    .navbar-toggler:focus {
-        box-shadow: none;
-    }
-    
-    .navbar-collapse {
+
+    .nav-menu {
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -1194,6 +1199,12 @@ html {
         border-radius: 8px;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         margin-top: 10px;
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        display: block;
+        animation: slideDown 0.3s ease forwards;
     }
 
     .nav-shape {
@@ -1206,8 +1217,15 @@ html {
     }
 
     .nav-link {
-        padding: 10px 15px;
+        padding: 15px;
         border-bottom: 1px solid rgba(26, 59, 93, 0.1);
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(77, 136, 204, 0.1);
+        padding-left: 20px;
     }
 
     .nav-link:last-child {
@@ -1238,6 +1256,35 @@ html {
         display: none;
     }
 
+    .about-shape-2 {
+        width: 100px;
+        top: 100px;
+        right: 10px;
+    }
+
+    /* About section adjustments */
+    .about {
+        overflow: visible;
+        position: relative;
+    }
+
+    /* Reduce bounce animation on mobile */
+    @keyframes bounceSmall {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-5px);
+        }
+        60% {
+            transform: translateY(-2px);
+        }
+    }
+
+    .about-shape-2.bounce {
+        animation: bounceSmall 2s;
+    }
+
     /* Timeline Section */
     .timeline-items {
         flex-direction: column;
@@ -1260,11 +1307,15 @@ html {
     /* Services Section */
     .service-list {
         flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
     }
 
     .service-item {
         width: 100%;
+        max-width: 350px;
         margin-bottom: 20px;
+        padding: 25px 20px;
     }
 
     /* Price Cards */
@@ -1325,8 +1376,15 @@ html {
 @media (max-width: 576px) {
     /* Container */
     .container {
-        padding: 0 15px;
+        padding: 0 10px;
+        max-width: 100%;
     }
+
+    /* Sections spacing */
+    .about, .services, .gallery, .contact, .cta {
+        padding: 40px 0;
+    }
+
 
     /* Header */
     .nav-logo {
@@ -1335,11 +1393,20 @@ html {
 
     /* Hero */
     .hero {
-        padding: 100px 0;
+        padding: 80px 0;
+        margin-top: 70px;
     }
 
     .hero-title {
         font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        padding: 0 10px;
     }
 
     /* Statistics */
@@ -1352,6 +1419,24 @@ html {
     }
 
     /* Services */
+    .service-list {
+        padding: 0 10px;
+    }
+
+    .service-item {
+        max-width: 280px;
+        padding: 20px 15px;
+        margin-bottom: 15px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
     .service-card {
         padding: 20px;
     }
@@ -1399,23 +1484,7 @@ html {
     }
 }
 
-/* Ajustes para el menú hamburguesa */
-.nav-toggle {
-    background: none;
-    border: none;
-    color: #1a3b5d;
-    font-size: 24px;
-    cursor: pointer;
-    display: none;
-}
-
-@media (max-width: 991px) {
-    .nav-toggle {
-        display: block;
-    }
-}
-
-/* Estilos para el overlay del menú móvil */
+/* Estilos adicionales para el menú móvil */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
@@ -1425,8 +1494,66 @@ html {
     background: rgba(0,0,0,0.5);
     display: none;
     z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .mobile-menu-overlay.active {
     display: block;
+    opacity: 1;
+}
+
+/* Animación para el ícono del menú hamburguesa */
+.nav-toggle.active ion-icon {
+    transform: rotate(90deg);
+    transition: transform 0.3s ease;
+}
+
+/* Estilos para asegurar que el menú funcione en todas las pantallas móviles */
+@media (max-width: 480px) {
+    .nav-menu {
+        left: 5px;
+        right: 5px;
+        padding: 15px;
+        max-width: calc(100vw - 10px);
+        box-sizing: border-box;
+    }
+
+    .nav-link {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    /* About Section Images - Ajustar en pantallas muy pequeñas */
+    .about-shape-2 {
+        width: 70px;
+        top: 140px;
+        right: 30px;
+        opacity: 0.7;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 5px;
+    }
+
+    /* CTA Section */
+    .cta-title {
+        font-size: 1.8rem;
+    }
+
+    /* Ensure no horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
 }
